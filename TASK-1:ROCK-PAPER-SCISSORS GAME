@@ -1,0 +1,30 @@
+import random
+def rock_paper_scissors():
+    choices = ['rock', 'paper', 'scissors']
+    gamer_score = 0
+    computer_score = 0
+    while True:
+        print("\nChoose rock, paper, or scissors")
+        gamer_choice = input("Your choice: ").lower()
+        if gamer_choice not in choices:
+            print("Invalid choice. Please try again.")
+            continue
+        computer_choice = random.choice(choices)
+        print(f"Computer chose: {computer_choice}")
+        if gamer_choice == computer_choice:
+            print("It's a tie:|")
+        elif(gamer_choice == 'rock' and computer_choice == 'scissors') or \
+             (gamer_choice == 'paper' and computer_choice == 'rock') or \
+             (gamer_choice == 'scissors' and computer_choice == 'paper'):
+            print("YOU WON:>")
+            gamer_score += 1
+        else:
+            print("YOU LOSE:<!")
+            computer_score += 1
+        print(f"Score: You {gamer_score} - Computer {computer_score}")
+        play_again = input("Do you want to play again? (yes/no): ").lower()
+        if play_again != 'yes':
+            break
+        print("THANKS FOR PLAYING:>!")
+# Running the game
+rock_paper_scissors()
